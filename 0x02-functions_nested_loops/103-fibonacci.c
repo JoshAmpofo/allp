@@ -9,8 +9,6 @@
  */
 int main(void)
 {
-	int count;
-
 	unsigned long first_num = 0, second_num = 1;
 	unsigned long sum;
 	float total_num;
