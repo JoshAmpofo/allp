@@ -6,7 +6,7 @@
  * If number is multiple of 5, return Buzz
  * If number is a multiple of both, return FizzBuzz
  *
- * Return: numbers and respective string
+ * Return: Always 0
  */
 int main(void)
 {
