@@ -12,8 +12,4 @@ int _isupper(int c)
 
 	else
 		return (0);
-
-	_putchar(':');
-	_putchar(c);
-	_putchar('\n');
 }
