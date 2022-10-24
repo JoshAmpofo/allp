@@ -30,6 +30,6 @@ int main(void)
 			sum -= n;
 			printf("%c", n);
 		}
-		return (0);
 	}
+	return (0);
 }
