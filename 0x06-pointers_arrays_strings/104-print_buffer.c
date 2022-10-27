@@ -2,12 +2,12 @@
 #include <stdio.h>
 
 /**
- * print_line - prints specific bytes of a buffer
+ * print_line - prints a s bytes of a buffer
  * @c: buffer to print
  * @s: bytes of buffer to print
  * @l: line of buffer to print
  *
- * Return: no value
+ * Return: void
  */
 void print_line(char *c, int s, int l)
 {
@@ -18,7 +18,7 @@ void print_line(char *c, int s, int l)
 		if (j <= s)
 			printf("%02x", c[l * 10 + j]);
 		else
-			printf(" ");
+			printf("  ");
 		if (j % 2)
 			putchar(' ');
 	}
