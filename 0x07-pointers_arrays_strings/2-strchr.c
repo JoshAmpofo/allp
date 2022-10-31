@@ -9,10 +9,8 @@
  */
 char *_strchr(char *s, char c)
 {
-	int i;
-
 	/* iterate through string char by char */
-	for (i = 0; s[i] != '\0'; ++i)
+	while (*s)
 	{
 		if (c != *s) /* count values in char not equal s */
 		{
@@ -23,5 +21,7 @@ char *_strchr(char *s, char c)
 			return (s); /* return value of char if in s */
 		}
 	}
-	return (0);
+		if (c == '\0') /* return 0 if char at EOF */
+			return (s);
+		return (NULL);
 }
