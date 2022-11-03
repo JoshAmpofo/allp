@@ -15,6 +15,8 @@ int chk_str(char *s1, char *s2, int a, int sc)
 		return (1);
 	if (s1[a] == s2[sc])
 		return (chk_str(s1, s2, a + 1, sc + 1));
+	if (s1[a] == '\0' && s2[sc] == '*')
+		return (chk_str(s1, s2, a, sc + 1));
 	if (s2[sc] == '*')
 		return (chk_str(s1, s2, a + 1, sc) || chk_str(s1, s2, a, sc + 1));
 	return (0);
