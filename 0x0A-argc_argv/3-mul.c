@@ -11,21 +11,19 @@
 int main(int argc, char *argv[])
 {
 	/* set variables to iterate and multiply */
-	int i, mul = 1;
+	int i, j;
 
-	/* conditional */
-	if (argc > 1)
-	{
-		for (i = 1; i < argc; i++)
-		{
-			mul *= atoi(argv[i]); /* atoi: converts string to integer */
-		}
-		printf("%d\n", mul); /* return value of mul */
-	}
-	else
+	/* number of arguments should be 3 taking into account prog name */
+	if (argc < 3)
 	{
 		printf("Error\n");
 		return (1);
+	}
+	else
+	{
+		i = atoi(argv[1]); /* convert 2nd arg to int */
+		j = atoi(argv[2]); /* convert 3rd arg to int */
+		printf("%d\n", i * j);
 	}
 	return (0);
 }
