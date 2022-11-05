@@ -7,7 +7,7 @@
  * @argv: string vector of argc
  *
  * Did not use atoi
- * because didnt give any flags when there was a logic error
+ * because didn't give any flags when there was a conv error
  *
  * Return: change, error and 1 if is arg < 2, 0 if no arg provided
  */
@@ -28,27 +28,27 @@ int main(int argc, char *argv[])
 	amount = strtol(argv[1], &a, 10); /* change string to int */
 	change = 0;
 
-	if (!*a)
+	if (!*a) /* not int */
 	{
 		while (amount > 1)
 		{
-			for (i = 0; i < sizeof(cents[i]); i++)
+			for (i = 0; i < sizeof(cents[i]); i++) /* iterate element by element */
 			{
 				if (amount >= cents[i])
 				{
-					change += amount / cents[i];
+					change += amount / cents[i]; /* change required */
 					amount = amount % cents[i];
 				}
 			}
 		}
 		if (amount == 1)
-			change++;
+			change++; /* count number of change */
 	}
 	else
 	{
 		printf("0\n");
 	}
 
-	printf("%d\n", change);
+	printf("%d\n", change); /* change change number */
 	return (0);
 }
