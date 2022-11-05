@@ -5,8 +5,9 @@
  * main - print the minimum number of coins to make change
  * @argc: argument count
  * @argv: string vector of argc
- * 
- * Did not use atoi because it didnt give any flags when there was a logic error
+ *
+ * Did not use atoi
+ * because didnt give any flags when there was a logic error
  *
  * Return: change, error and 1 if is arg < 2, 0 if no arg provided
  */
@@ -27,7 +28,7 @@ int main(int argc, char *argv[])
 	amount = strtol(argv[1], &a, 10); /* change string to int */
 	change = 0;
 
-	if (!*a) 
+	if (!*a)
 	{
 		while (amount > 1)
 		{
