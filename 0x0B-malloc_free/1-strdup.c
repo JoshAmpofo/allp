@@ -11,15 +11,16 @@ char *_strdup(char *str)
 	char *dup_str;
 	int i, len_str = 0;
 
+	/* first condition */
+	if (str == NULL)
+		return (NULL);
+
 	/* length of str */
 	while (str[len_str] != '\0')
 	{
 		len_str++;
 	}
 
-	/* first condition */
-	if (str == NULL)
-		return (NULL);
 	/**
 	 * set memory size for duplicate string
 	 * +1 accounts for null terminating character
@@ -35,5 +36,7 @@ char *_strdup(char *str)
 	{
 		dup_str[i] = str[i];
 	}
+	dup_str[len_str] = '\0'; /* append NULL terminating character to dup_str */
+
 	return (dup_str);
 }
