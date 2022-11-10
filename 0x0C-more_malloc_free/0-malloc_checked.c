@@ -13,7 +13,7 @@
 void *malloc_checked(unsigned int b)
 {
 	int *arr;
-	
+
 	/* allocate memory to arr */
 	arr = malloc(b);
 
