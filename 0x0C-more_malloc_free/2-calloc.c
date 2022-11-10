@@ -12,7 +12,8 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *arr;
+	void *arr;
+	char *fill_mem;
 	unsigned int i;
 
 	/* nmemb is 0 or size is 0 */
@@ -27,15 +28,9 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 
 	/* set memory to zero */
-	memset(arr, 0, nmemb * sizeof(size));
+	fill_mem = arr;
 
-	/* Access array items */
-	for (i = 0; i < nmemb; i++)
-	{
-		if (arr[i] != 0)
-		{
-			break;
-		}
-	}
+	for (i = 0; i < (size * nmemb); i++)
+		fill_mem[i] = '\0';
 	return (arr);
 }
