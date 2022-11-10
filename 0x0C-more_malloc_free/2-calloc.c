@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+
 /**
  * _calloc - allocate memory to an array
  * memory should be allocate based on a set number of bytes
@@ -21,7 +20,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 
 	/* allocate memory to array */
-	arr = malloc(sizeof(size) * nmemb);
+	arr = malloc(size * nmemb);
 
 	/* terminating condition if malloc fails */
 	if (arr == NULL)
@@ -32,5 +31,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	for (i = 0; i < (size * nmemb); i++)
 		fill_mem[i] = '\0';
+
 	return (arr);
 }
