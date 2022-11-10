@@ -18,11 +18,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int len_s2;
 
 	/* if NULL is passed, treat as an empty string */
-	if (s1 == NULL || s2 == NULL)
-	{
+	if (s1 == NULL)
 		s1 = "";
+	if (s2 == NULL)
 		s2 = "";
-	}
 
 	/* find length of s1 and s2 */
 	len_s2 = strlen(s2);
