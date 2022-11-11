@@ -9,10 +9,13 @@
  */
 int main(void)
 {
-	char alpha = 'a';
+	int i = 97;
 
-	for (alpha = 'a'; alpha <= 'z'; ++alpha)
-		putchar(alpha);
+	do
+	{
+		putchar(i);
+		i++;
+	} while (i <= 122);
 	putchar('\n');
 
 	return (0);
