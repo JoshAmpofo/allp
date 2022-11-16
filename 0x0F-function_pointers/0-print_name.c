@@ -9,6 +9,10 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
+	/* set condition for when f/name points to/contains nothing */
+	if (name == NULL || f == NULL)
+		return; /* return nothing */
+
 	/* call pointer to name string */
 	f(name);
 }
