@@ -27,7 +27,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		/* NULL string */
 		if (str == NULL)
 		{
-			printf("nil");
+			printf("(nil)");
 		}
 		else
 		{
@@ -38,6 +38,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		if (i != (n - 1) && separator != NULL)
 			printf("%s", separator);
 	}
-	va_end(ptr_str);
 	printf("\n");
+
+	va_end(ptr_str); /* end string traversal */
 }
