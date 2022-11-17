@@ -15,7 +15,7 @@ void print_opcodes(char *a, int num_byte)
 	/* iterate through argc and covert each to hexa for opcode */
 	for (i = 0; i < num_byte; i++)
 	{
-		printf("%.2hx", a[i]);
+		printf("%.2hhx", a[i]);
 		{
 			if (i < num_byte - 1)
 				printf(" ");
