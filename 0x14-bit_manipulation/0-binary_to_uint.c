@@ -5,7 +5,7 @@
  * @b: string binary
  *
  * Return: converted number, 0 if b is NULL
- 	or one or more char in b is not 0 or 1.
+ * or one or more char in b is not 0 or 1.
  */
 unsigned int binary_to_uint(const char *b)
 {
@@ -24,7 +24,7 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 	}
 	/* traverse string and convert each char to ui */
-	for(str_char = 0; b[str_char] != '\0'; str_char++)
+	for (str_char = 0; b[str_char] != '\0'; str_char++)
 	{
 		num  <<= 1;
 		if (b[str_char] == '1')
