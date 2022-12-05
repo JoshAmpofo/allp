@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * create_buffer - allocate 1024 bytes to a specific buffer
  * @filename: name of file buffer is storing chars for.
@@ -8,8 +7,8 @@
 char *create_buffer(char *filename)
 {
 	char *bufr;
-	/* allocate memory to buffer */
-	bufr = malloc(sizeof(char) * 1024);
+
+	bufr = malloc(sizeof(char) * 1024); /* allocate memory to buffer */
 	if (bufr == NULL) /* malloc fails */
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
@@ -17,7 +16,6 @@ char *create_buffer(char *filename)
 	}
 	return (bufr);
 }
-
 /**
  * close_file - close file descriptors when done with operation
  * @fd: file descriptor to close
@@ -26,16 +24,14 @@ char *create_buffer(char *filename)
 void close_file(int fd)
 {
 	int close_var;
-	/* close file descriptor */
-	close_var = close(fd);
-	/* set condition for close() failure */
+
+	close_var = close(fd); /* close file descriptor */
 	if (close_var == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
-
 /**
  * main - copy file from one buffer to another
  * @argc: cmdline argument count
@@ -47,22 +43,16 @@ int main(int argc, char **argv)
 	int file_from, file_to, rd, wr;
 	char *buffer;
 
-	/* set condition if argc not up to */
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	/* call buffer function */
-	buffer = create_buffer(argv[2]);
-	/* open file_from */
-	file_from = open(argv[1], O_RDONLY);
-	/* read from file_from */
-	rd = read(file_from, buffer, 1024);
-	/* open and write to file_to */
+	buffer = create_buffer(argv[2]); /* call buffer */
+	file_from = open(argv[1], O_RDONLY); /* open file_from */
+	rd = read(file_from, buffer, 1024); /* read file_to */
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	/* set fail conditions of file_to and file_from */
 	do {
 		if (file_from == -1 || rd == -1)
 		{
@@ -78,13 +68,10 @@ int main(int argc, char **argv)
 			free(buffer);
 			exit(99);
 		}
-		/* read from file_from */
-		rd = read(file_from, buffer, 1024);
-		/* create append instruction */
-		file_to = open(argv[2], O_WRONLY | O_APPEND);
+		rd = read(file_from, buffer, 1024); /* read from file_from */
+		file_to = open(argv[2], O_WRONLY | O_APPEND); /* create append command */
 	} while (rd > 0);
 
-	/* clean up and end program */
 	free(buffer);
 	close_file(file_from);
 	close_file(file_to);
