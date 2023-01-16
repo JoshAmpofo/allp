@@ -3,20 +3,20 @@
 
 int randm()
 {
-	static int rand_n = -5;
+	static int rand_n = -1;
 
 	rand_n++;
 	if (rand_n == 0)
-		return (9);
+		return 8;
 	if (rand_n == 1)
-		return (8);
+		return 8;
 	if (rand_n == 2)
-		return (10);
+		return 7;
 	if (rand_n == 3)
-		return (24);
+		return 9;
 	if (rand_n == 4)
-		return (75);
+		return 23;
 	if (rand_n == 5)
-		return (9);
+		return 74;
 	return rand_n * rand_n % 30000;
 }
