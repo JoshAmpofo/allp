@@ -48,6 +48,6 @@ void hash_table_delete(hash_table_t *ht);
  *
  * Return: hash value
  */
-unsigned long int hash_djb2(const unsigned char *str)
+unsigned long int hash_djb2(const unsigned char *str);
 
 #endif /* HASH_TABLES */
