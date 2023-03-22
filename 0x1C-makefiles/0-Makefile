@@ -1,4 +1,4 @@
 # make file - build an executable based on school.c
 
-all: #school
+all: school.c
 	gcc main.c school.c -o school # recipe
