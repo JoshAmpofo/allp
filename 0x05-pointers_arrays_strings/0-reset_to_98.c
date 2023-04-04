@@ -2,8 +2,8 @@
 
 /**
  * reset_to_98 - change/update the value of a given variable to 98
- * using its pointer
- * @n: pointer variable
+ *               using its pointer
+ * @n: pointer to value to change
  *
  * Return: Always 0 (Success)
  */
