@@ -1,36 +1,36 @@
 #include "main.h"
 
 /**
- * chk_str - check if strings fulfill similarity conditions
- * @s1: source string
- * @s2: dest string
- * @a: first half of string
- * @sc: special character
+ * wildcmp - compare two strings
+ * @s1: first string
+ * @s2: second string
+ *      can contain a special character '*'
+ *      which can replace any string, including an empty one
  *
- * Return: True or False
- */
-int chk_str(char *s1, char *s2, int a, int sc)
-{
-	if (s1[a] == '\0' && s2[sc] == '\0')
-		return (1);
-	if (s1[a] == s2[sc])
-		return (chk_str(s1, s2, a + 1, sc + 1));
-	if (s1[a] == '\0' && s2[sc] == '*')
-		return (chk_str(s1, s2, a, sc + 1));
-	if (s2[sc] == '*')
-		return (chk_str(s1, s2, a + 1, sc) || 
-				chk_str(s1, s2, a, sc + 1));
-	return (0);
-}
-
-/**
- * wildcmp - compare strings for similarity
- * @s1: source string
- * @s2: dest string
- *
- * Return: True or false in numerics
+ * Return: 1 if strings are identical. 0 if otherwise
  */
 int wildcmp(char *s1, char *s2)
 {
-	return (chk_str(s1, s2, 0, 0));
+	/* check if both strings are empty, return 1 */
+	if (*s1 == '\0' && *s2 == '\0')
+		return (1);
+	/* check if the second string has a wild character recurs */
+	else if (*s2 == '*')
+	{
+		if (*s1 == '\0')
+		{
+			return (wildcmp(s1, s2 + 1)); /* skip wildchar */
+		}
+		else /* match wildchar to next string */
+		{
+			return (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2));
+		}
+	}
+	/* check if both strings are the same, move to next char */
+	else if (*s1 == *s2)
+	{
+		return (wildcmp(s1 + 1, s2 + 1));
+	}
+	else /* chars don't match */
+		return (0);
 }
